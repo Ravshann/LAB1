@@ -3,25 +3,25 @@ pragma solidity ^0.8.0;
 
 contract Lab{
     
-    address owner;
+  address owner;
 
-    constructor() public {
-        owner = msg.sender;
-    }
-  
+  constructor() public {
+    owner = msg.sender;
+  }
+
 
   // Create a modifier to ensure the current address interacting with a
   // particular function, is the same as the contract owner(deployer).
-    modifier onlyOwner(){
-        require(msg.sender==owner, "Only owner can call this method");
-        _;
-    }  
+  modifier onlyOwner(){
+    require(msg.sender==owner, "Only owner can call this method");
+    _;
+  }  
 
   // Create another modifier to ensure a student mark is between 0 and 100.
-	modifier isValidMark(uint256 mark){
-        require(mark>=0 && mark<=100, "Invalid mark value. Valid value range: [0..100]");
-        _;
-    }
+  modifier isValidMark(uint256 mark){
+    require(mark>=0 && mark<=100, "Invalid mark value. Valid value range: [0..100]");
+    _;
+  }
   
   
   // This struct will hold student data.
@@ -35,7 +35,7 @@ contract Lab{
   }
   
   event StudentAdded(
-   string content
+    string content
   );
 
   // Here we create a mapping of key/value pairs.
